@@ -19,7 +19,7 @@ from ogrl_integration import Incomplete, Integration, InvalidConfig, VendorError
 
 from sigv4 import sign
 
-app = Integration("dev.adversity.aws", "0.1.1")
+app = Integration("dev.adversity.aws", "0.1.2")
 
 IAM = "https://iam.amazonaws.com/"
 IAM_VERSION = "2010-05-08"
