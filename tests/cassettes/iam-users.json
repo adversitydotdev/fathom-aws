@@ -1,0 +1,31 @@
+{
+  "interactions": [
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>STARTED</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>COMPLETE</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GetCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GetCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GetCredentialReportResult><Content>dXNlcixhcm4sdXNlcl9jcmVhdGlvbl90aW1lLHBhc3N3b3JkX2VuYWJsZWQscGFzc3dvcmRfbGFzdF91c2VkLHBhc3N3b3JkX2xhc3RfY2hhbmdlZCxwYXNzd29yZF9uZXh0X3JvdGF0aW9uLG1mYV9hY3RpdmUsYWNjZXNzX2tleV8xX2FjdGl2ZSxhY2Nlc3Nfa2V5XzFfbGFzdF9yb3RhdGVkLGFjY2Vzc19rZXlfMV9sYXN0X3VzZWRfZGF0ZSxhY2Nlc3Nfa2V5XzFfbGFzdF91c2VkX3JlZ2lvbixhY2Nlc3Nfa2V5XzFfbGFzdF91c2VkX3NlcnZpY2UsYWNjZXNzX2tleV8yX2FjdGl2ZSxhY2Nlc3Nfa2V5XzJfbGFzdF9yb3RhdGVkLGFjY2Vzc19rZXlfMl9sYXN0X3VzZWRfZGF0ZSxhY2Nlc3Nfa2V5XzJfbGFzdF91c2VkX3JlZ2lvbixhY2Nlc3Nfa2V5XzJfbGFzdF91c2VkX3NlcnZpY2UsY2VydF8xX2FjdGl2ZSxjZXJ0XzFfbGFzdF9yb3RhdGVkLGNlcnRfMl9hY3RpdmUsY2VydF8yX2xhc3Rfcm90YXRlZAo8cm9vdF9hY2NvdW50Pixhcm46YXdzOmlhbTo6NDQ3MTAwMDAwMDAwOnJvb3QsMjAyMC0wMS0wMVQwMDowMDowMCswMDowMCxub3Rfc3VwcG9ydGVkLDIwMjYtMTAtMDFUMDk6MDA6MDArMDA6MDAsbm90X3N1cHBvcnRlZCxub3Rfc3VwcG9ydGVkLHRydWUsdHJ1ZSwyMDIxLTA0LTAxVDAwOjAwOjAwKzAwOjAwLDIwMjQtMDItMDFUMDA6MDA6MDArMDA6MDAsdXMtZWFzdC0xLHMzLGZhbHNlLE4vQSxOL0EsTi9BLE4vQSxmYWxzZSxOL0EsZmFsc2UsTi9BCmFsaWNlLGFybjphd3M6aWFtOjo0NDcxMDAwMDAwMDA6dXNlci9hbGljZSwyMDIzLTA1LTAxVDAwOjAwOjAwKzAwOjAwLHRydWUsMjAyNi0xMS0yMFQwODowMDowMCswMDowMCwyMDI2LTA2LTAxVDAwOjAwOjAwKzAwOjAwLE4vQSx0cnVlLGZhbHNlLE4vQSxOL0EsTi9BLE4vQSxmYWxzZSxOL0EsTi9BLE4vQSxOL0EsZmFsc2UsTi9BLGZhbHNlLE4vQQpib2IsYXJuOmF3czppYW06OjQ0NzEwMDAwMDAwMDp1c2VyL2JvYiwyMDI0LTAxLTEwVDAwOjAwOjAwKzAwOjAwLHRydWUsbm9faW5mb3JtYXRpb24sMjAyNC0wMS0xMFQwMDowMDowMCswMDowMCxOL0EsZmFsc2UsdHJ1ZSwyMDI2LTAzLTAxVDAwOjAwOjAwKzAwOjAwLDIwMjYtMTEtMTlUMDA6MDA6MDArMDA6MDAsdXMtZWFzdC0xLGVjMixmYWxzZSxOL0EsTi9BLE4vQSxOL0EsZmFsc2UsTi9BLGZhbHNlLE4vQQpjaS1kZXBsb3ksYXJuOmF3czppYW06OjQ0NzEwMDAwMDAwMDp1c2VyL2NpLWRlcGxveSwyMDIyLTA3LTAxVDAwOjAwOjAwKzAwOjAwLGZhbHNlLE4vQSxOL0EsTi9BLGZhbHNlLHRydWUsMjAyNi0xMC0xNVQwMDowMDowMCswMDowMCwyMDI2LTExLTIxVDAzOjAwOjAwKzAwOjAwLHVzLWVhc3QtMSxzMyx0cnVlLDIwMjUtMTItMDFUMDA6MDA6MDArMDA6MDAsMjAyNi0xMS0wMVQwMDowMDowMCswMDowMCx1cy13ZXN0LTIsZWNyLGZhbHNlLE4vQSxmYWxzZSxOL0EK</Content><ReportFormat>text/csv</ReportFormat><GeneratedTime>2026-11-21T06:00:00Z</GeneratedTime></GetCredentialReportResult><ResponseMetadata><RequestId>1</RequestId></ResponseMetadata></GetCredentialReportResponse>"
+    }
+  ]
+}

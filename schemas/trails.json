@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "required": ["id", "name", "multi_region", "logging", "log_file_validation"],
+  "properties": {
+    "id": {"type": "string", "description": "The trail ARN."},
+    "name": {"type": "string"},
+    "home_region": {"type": ["string", "null"]},
+    "multi_region": {"type": "boolean"},
+    "organization_trail": {"type": "boolean"},
+    "global_service_events": {"type": "boolean"},
+    "logging": {"type": "boolean"},
+    "log_file_validation": {"type": "boolean"},
+    "s3_bucket": {"type": ["string", "null"]},
+    "kms_encrypted": {"type": "boolean"},
+    "latest_delivery": {"type": ["string", "null"]},
+    "latest_delivery_error": {"type": ["string", "null"]}
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "interactions": [
+    {
+      "method": "POST",
+      "url": "https://sts.us-east-1.amazonaws.com/",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GetCallerIdentityResponse xmlns=\"https://sts.amazonaws.com/doc/2011-06-15/\"><GetCallerIdentityResult><Arn>arn:aws:sts::447100000000:assumed-role/ogrl-readonly/ogrl-connection</Arn><UserId>AROAEXAMPLE:ogrl-connection</UserId><Account>447100000000</Account></GetCallerIdentityResult><ResponseMetadata><RequestId>2</RequestId></ResponseMetadata></GetCallerIdentityResponse>"
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "interactions": [
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    },
+    {
+      "method": "GET",
+      "url": "https://iam.amazonaws.com/?Action=GenerateCredentialReport&Version=2010-05-08",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/xml"
+      },
+      "body": "<GenerateCredentialReportResponse xmlns=\"https://iam.amazonaws.com/doc/2010-05-08/\"><GenerateCredentialReportResult><Description>No report exists. Starting a new report generation task</Description><State>INPROGRESS</State></GenerateCredentialReportResult><ResponseMetadata><RequestId>29f47818-99f5-11e1-a4c3-27EXAMPLE804</RequestId></ResponseMetadata></GenerateCredentialReportResponse>"
+    }
+  ]
+}

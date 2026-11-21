@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "required": ["id", "name", "root", "console_access", "mfa_active", "active_access_keys", "oldest_active_key_rotated"],
+  "properties": {
+    "id": {"type": "string", "description": "The user's ARN."},
+    "name": {"type": "string", "description": "The IAM user name, or <root_account>."},
+    "root": {"type": "boolean"},
+    "created": {"type": ["string", "null"]},
+    "console_access": {"type": "boolean", "description": "Has a password; always true for root."},
+    "password_last_used": {"type": ["string", "null"]},
+    "mfa_active": {"type": "boolean"},
+    "active_access_keys": {"type": "integer"},
+    "oldest_active_key_rotated": {"type": ["string", "null"]},
+    "access_key_last_used": {"type": ["string", "null"]}
+  }
+}

@@ -1,0 +1,89 @@
+id: dev.adversity.aws
+name: AWS
+version: 0.1.0
+protocol: 1
+publisher: adversity.dev
+description: IAM users and their credentials (from the IAM credential report) and CloudTrail trails with logging status, through a read-only role.
+runtime:
+  kind: python
+  entrypoint: aws_integration:app.run
+egress:
+  - iam.amazonaws.com
+  - "sts.*.amazonaws.com"
+  - "cloudtrail.*.amazonaws.com"
+config:
+  - name: region
+    label: Region for CloudTrail and STS
+    pattern: "^(us|eu|ap|ca|sa|me|af|il|mx)-[a-z]+-[0-9]$"
+auth:
+  - kind: aws_role
+    label: Read-only IAM role (SecurityAudit, plus iam:GenerateCredentialReport)
+resources:
+  - name: iam-users
+    version: 1
+    schema: schemas/iam-users.json
+  - name: trails
+    version: 1
+    schema: schemas/trails.json
+checks: []
+templates:
+  - name: console-mfa
+    fulfills_ref: test--ogrl-ia-01-mfa-enforcement
+    test:
+      name: Every AWS console user, and the root user, has MFA
+      control_ref: control--ogrl-ia-01
+      method: automated
+      interval: daily
+      description: >
+        IAM users with a console password, and the account root user, have an
+        active MFA device according to the IAM credential report.
+      run:
+        runner: rule
+        source: dev.adversity.aws/iam-users@1
+        select: item.console_access
+        assert: item.mfa_active
+        subject: '{"kind": "account", "name": item.name, "external_id": item.id}'
+  - name: access-key-age
+    fulfills_ref: test--ogrl-ia-02-secret-hygiene
+    test:
+      name: Active AWS access keys are rotated within the rotation period
+      control_ref: control--ogrl-ia-02
+      method: automated
+      interval: weekly
+      description: >
+        No IAM user's active access key is older than the control's
+        rotation_period parameter (90 days in the standard library).
+      run:
+        runner: rule
+        source: dev.adversity.aws/iam-users@1
+        select: item.oldest_active_key_rotated != null
+        assert: observed - timestamp(item.oldest_active_key_rotated) <= days(params.rotation_period)
+        subject: '{"kind": "account", "name": item.name, "external_id": item.id}'
+        allow_empty: true
+  - name: root-access-keys
+    test:
+      name: The AWS root user has no access keys
+      control_ref: control--ogrl-ac-03
+      method: automated
+      interval: daily
+      run:
+        runner: rule
+        source: dev.adversity.aws/iam-users@1
+        select: item.root
+        assert: item.active_access_keys == 0
+  - name: audit-logging
+    fulfills_ref: test--ogrl-au-01-audit-logging
+    test:
+      name: A multi-region CloudTrail trail is logging with file validation
+      control_ref: control--ogrl-au-01
+      method: automated
+      interval: daily
+      description: >
+        At least one trail that records every region is logging and has log file
+        integrity validation on. Retention is configured on the trail's bucket
+        and is not checked here.
+      run:
+        runner: rule
+        source: dev.adversity.aws/trails@1
+        aggregate: items.exists(t, t.logging && t.multi_region && t.log_file_validation)
+        allow_empty: true
