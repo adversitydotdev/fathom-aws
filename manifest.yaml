@@ -43,6 +43,9 @@ templates:
         select: item.console_access
         assert: item.mfa_active
         subject: '{"kind": "account", "name": item.name, "external_id": item.id}'
+        # The report always lists root, so an empty selection means no console users,
+        # not a missing permission (that fails the collection instead).
+        allow_empty: true
   - name: access-key-age
     fulfills_ref: test--ogrl-ia-02-secret-hygiene
     test:

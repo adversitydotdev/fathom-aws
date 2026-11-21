@@ -53,6 +53,13 @@ def test_iam_users_from_the_credential_report():
     assert ci["id"] == "arn:aws:iam::447100000000:user/ci-deploy"
 
 
+def test_root_without_credentials_is_not_a_console_user():
+    """Organizations' centralized root access removes member accounts' root credentials.
+    The report then says password_enabled=false, as recorded from a live account."""
+    (root,) = collect("iam-users", "iam-users-root-removed").items
+    assert (root["root"], root["console_access"], root["mfa_active"]) == (True, False, False)
+
+
 def test_a_report_that_never_finishes_is_incomplete():
     result = collect("iam-users", "iam-users-stuck")
     assert (result.items, result.complete) == ([], False)

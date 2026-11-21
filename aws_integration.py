@@ -53,7 +53,8 @@ def _region(ctx) -> str:
 
 def _iam(ctx, action: str) -> ET.Element:
     url = f"{IAM}?{urlencode({'Action': action, 'Version': IAM_VERSION})}"
-    response = _signed(ctx, "GET", url, "iam", "us-east-1")
+    # Query APIs answer in JSON when asked for it, and the SDK asks by default.
+    response = _signed(ctx, "GET", url, "iam", "us-east-1", {"Accept": "text/xml"})
     return ET.fromstring(response.body)
 
 
@@ -72,7 +73,7 @@ def validate(ctx):
         f"https://sts.{region}.amazonaws.com/",
         "sts",
         region,
-        {"Content-Type": "application/x-www-form-urlencoded; charset=utf-8"},
+        {"Content-Type": "application/x-www-form-urlencoded; charset=utf-8", "Accept": "text/xml"},
         body,
     )
     root = ET.fromstring(response.body)
@@ -115,7 +116,10 @@ def iam_users(ctx):
             "name": row["user"],
             "root": root,
             "created": _when(row.get("user_creation_time")),
-            "console_access": root or row.get("password_enabled") == "true",
+            # Root reports `not_supported` when it has a password; `false` when Organizations'
+            # centralized root access removed its credentials, so it cannot sign in at all.
+            "console_access": row.get("password_enabled")
+            in (("true", "not_supported") if root else ("true",)),
             "password_last_used": _when(row.get("password_last_used")),
             "mfa_active": row.get("mfa_active") == "true",
             "active_access_keys": len(keys),
