@@ -1,6 +1,6 @@
 id: dev.adversity.aws
 name: AWS
-version: 0.1.0
+version: 0.1.1
 protocol: 1
 publisher: adversity.dev
 description: IAM users and their credentials (from the IAM credential report) and CloudTrail trails with logging status, through a read-only role.
