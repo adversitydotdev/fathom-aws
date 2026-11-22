@@ -21,7 +21,7 @@ from urllib.parse import urlencode
 from ogrl_integration import Incomplete, Integration, InvalidConfig, VendorError
 from ogrl_integration.sigv4 import sign
 
-app = Integration("dev.adversity.aws", "0.2.0")
+app = Integration("dev.adversity.aws", "0.3.0")
 
 IAM = "https://iam.amazonaws.com/"
 IAM_VERSION = "2010-05-08"

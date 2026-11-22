@@ -48,6 +48,39 @@ QUERIES = {
     "CloudTrail trails": Q(
         "cloudtrail.ListTrails", fields={"id": "TrailARN", "name": "Name", "home": "HomeRegion"}, regions="*"
     ),
+    "S3 buckets": Q(
+        "s3.ListBuckets",
+        params={"BucketRegion": "$region"},
+        fields={"id": "BucketArn", "name": "Name", "created": "CreationDate"},
+        regions="*",
+    ),
+    "S3 bucket encryption": Q(
+        "s3.GetBucketEncryption",
+        fields={
+            "id": "$parent.BucketArn",
+            "name": "$parent.Name",
+            "rules": "ServerSideEncryptionConfiguration.Rules",
+        },
+        regions="*",
+        for_each=smithy.ForEach(
+            "s3.ListBuckets", bind={"Bucket": "Name"}, params={"BucketRegion": "$region"}
+        ),
+    ),
+    "S3 public access block": Q(
+        "s3.GetPublicAccessBlock",
+        fields={
+            "id": "$parent.BucketArn",
+            "name": "$parent.Name",
+            "block_public_acls": "PublicAccessBlockConfiguration.BlockPublicAcls",
+            "block_public_policy": "PublicAccessBlockConfiguration.BlockPublicPolicy",
+            "ignore_public_acls": "PublicAccessBlockConfiguration.IgnorePublicAcls",
+            "restrict_public_buckets": "PublicAccessBlockConfiguration.RestrictPublicBuckets",
+        },
+        regions="*",
+        for_each=smithy.ForEach(
+            "s3.ListBuckets", bind={"Bucket": "Name"}, params={"BucketRegion": "$region"}
+        ),
+    ),
     "IAM roles": Q(
         "iam.ListRoles",
         fields={"id": "RoleId", "name": "RoleName", "last_used": "RoleLastUsed.LastUsedDate"},
@@ -76,7 +109,16 @@ def test_every_denied_operation_exists():
     assert [name for name in SETTINGS.deny_operations if name not in API.operations] == []
 
 
-@pytest.mark.parametrize("name", ["ec2.GetPasswordData", "ec2.DescribeInstanceAttribute", "iam.CreateUser"])
+@pytest.mark.parametrize(
+    "name",
+    [
+        "ec2.GetPasswordData",
+        "ec2.DescribeInstanceAttribute",
+        "iam.CreateUser",
+        "s3.GetObject",
+        "s3.PutBucketPolicy",
+    ],
+)
 def test_content_reads_and_writes_cannot_be_queried(name):
     assert not API.operations[name].readable
 

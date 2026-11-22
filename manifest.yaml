@@ -1,9 +1,9 @@
 id: dev.adversity.aws
 name: AWS
-version: 0.2.0
+version: 0.3.0
 protocol: 1
 publisher: adversity.dev
-description: IAM users and their credentials (from the IAM credential report) and CloudTrail trails with logging status, through a read-only role. Query sources over IAM, EC2, RDS, KMS, CloudTrail, and GuardDuty.
+description: IAM users and their credentials (from the IAM credential report) and CloudTrail trails with logging status, through a read-only role. Query sources over IAM, EC2, RDS, KMS, CloudTrail, GuardDuty, and S3.
 runtime:
   kind: python
   entrypoint: aws_integration:app.run
@@ -15,6 +15,7 @@ egress:
   - "rds.*.amazonaws.com"
   - "kms.*.amazonaws.com"
   - "guardduty.*.amazonaws.com"
+  - "s3.*.amazonaws.com"
 config:
   - name: region
     label: Region for CloudTrail and STS
@@ -48,6 +49,9 @@ smithy:
     guardduty:
       model: models/guardduty-2017-11-28.json
       endpoint: "https://guardduty.{region}.amazonaws.com"
+    s3:  # path-style; list buckets per region with params {BucketRegion: $region}
+      model: models/s3-2006-03-01.json
+      endpoint: "https://s3.{region}.amazonaws.com"
   # Reads that return content or secrets rather than configuration.
   deny_operations:
     - ec2.GetPasswordData                 # encrypted Windows administrator password
@@ -61,6 +65,16 @@ smithy:
     - ec2.DescribeSpotFleetRequests       # launch specification user data
     - kms.GetParametersForImport          # creates key-material import parameters
     - cloudtrail.GetQueryResults          # CloudTrail Lake event data
+    - s3.GetObject                        # object content
+    - s3.GetObjectTorrent
+    - s3.GetObjectAttributes              # object keys and metadata
+    - s3.GetObjectAnnotation
+    - s3.ListObjects                      # object keys
+    - s3.ListObjectsV2
+    - s3.ListObjectVersions
+    - s3.ListObjectAnnotations
+    - s3.ListMultipartUploads
+    - s3.ListParts
 resources:
   - name: iam-users
     version: 1
