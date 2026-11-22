@@ -85,10 +85,10 @@ resources:
 checks: []
 templates:
   - name: console-mfa
-    fulfills_ref: test--ogrl-ia-01-mfa-enforcement
+    fulfills_ref: test--ogrl-ac-05-mfa-enforcement
     test:
       name: Every AWS console user, and the root user, has MFA
-      control_ref: control--ogrl-ia-01
+      control_ref: control--ogrl-ac-05
       method: automated
       interval: daily
       description: >
@@ -104,10 +104,10 @@ templates:
         # not a missing permission (that fails the collection instead).
         allow_empty: true
   - name: access-key-age
-    fulfills_ref: test--ogrl-ia-02-secret-hygiene
+    fulfills_ref: test--ogrl-ac-06-secret-hygiene
     test:
       name: Active AWS access keys are rotated within the rotation period
-      control_ref: control--ogrl-ia-02
+      control_ref: control--ogrl-ac-06
       method: automated
       interval: weekly
       description: >
@@ -132,10 +132,10 @@ templates:
         select: item.root
         assert: item.active_access_keys == 0
   - name: audit-logging
-    fulfills_ref: test--ogrl-au-01-audit-logging
+    fulfills_ref: test--ogrl-lm-01-audit-logging
     test:
       name: A multi-region CloudTrail trail is logging with file validation
-      control_ref: control--ogrl-au-01
+      control_ref: control--ogrl-lm-01
       method: automated
       interval: daily
       description: >
