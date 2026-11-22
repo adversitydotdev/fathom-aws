@@ -1,9 +1,9 @@
 id: dev.adversity.aws
 name: AWS
-version: 0.1.2
+version: 0.2.0
 protocol: 1
 publisher: adversity.dev
-description: IAM users and their credentials (from the IAM credential report) and CloudTrail trails with logging status, through a read-only role.
+description: IAM users and their credentials (from the IAM credential report) and CloudTrail trails with logging status, through a read-only role. Query sources over IAM, EC2, RDS, KMS, CloudTrail, and GuardDuty.
 runtime:
   kind: python
   entrypoint: aws_integration:app.run
@@ -11,13 +11,56 @@ egress:
   - iam.amazonaws.com
   - "sts.*.amazonaws.com"
   - "cloudtrail.*.amazonaws.com"
+  - "ec2.*.amazonaws.com"
+  - "rds.*.amazonaws.com"
+  - "kms.*.amazonaws.com"
+  - "guardduty.*.amazonaws.com"
 config:
   - name: region
     label: Region for CloudTrail and STS
     pattern: "^(us|eu|ap|ca|sa|me|af|il|mx)-[a-z]+-[0-9]$"
+  - name: regions
+    label: Regions that query sources with regions "*" read, comma-separated (defaults to the region)
+    required: false
+    pattern: "^(us|eu|ap|ca|sa|me|af|il|mx)-[a-z]+-[0-9](,(us|eu|ap|ca|sa|me|af|il|mx)-[a-z]+-[0-9])*$"
 auth:
   - kind: aws_role
     label: Read-only IAM role (SecurityAudit, plus iam:GenerateCredentialReport)
+# Query sources (OGRL RFC 0007). Models are aws/api-models-aws (Apache-2.0; see models/NOTICE).
+smithy:
+  services:
+    iam:
+      model: models/iam-2010-05-08.json
+      endpoint: "https://iam.amazonaws.com"
+      signing_region: us-east-1
+    ec2:
+      model: models/ec2-2016-11-15.json
+      endpoint: "https://ec2.{region}.amazonaws.com"
+    rds:
+      model: models/rds-2014-10-31.json
+      endpoint: "https://rds.{region}.amazonaws.com"
+    kms:
+      model: models/kms-2014-11-01.json
+      endpoint: "https://kms.{region}.amazonaws.com"
+    cloudtrail:
+      model: models/cloudtrail-2013-11-01.json
+      endpoint: "https://cloudtrail.{region}.amazonaws.com"
+    guardduty:
+      model: models/guardduty-2017-11-28.json
+      endpoint: "https://guardduty.{region}.amazonaws.com"
+  # Reads that return content or secrets rather than configuration.
+  deny_operations:
+    - ec2.GetPasswordData                 # encrypted Windows administrator password
+    - ec2.GetConsoleOutput                # instance console log
+    - ec2.GetConsoleScreenshot
+    - ec2.GetInstanceUefiData             # UEFI variable store
+    - ec2.GetLaunchTemplateData           # includes user data
+    - ec2.DescribeLaunchTemplateVersions  # includes user data
+    - ec2.DescribeInstanceAttribute       # userData attribute
+    - ec2.DescribeSpotInstanceRequests    # launch specification user data
+    - ec2.DescribeSpotFleetRequests       # launch specification user data
+    - kms.GetParametersForImport          # creates key-material import parameters
+    - cloudtrail.GetQueryResults          # CloudTrail Lake event data
 resources:
   - name: iam-users
     version: 1

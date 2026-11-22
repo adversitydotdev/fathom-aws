@@ -1,7 +1,7 @@
 [project]
 name = "ogrl-aws"
-version = "0.1.2"
-description = "AWS integration for OGRL (RFC 0005): IAM users and credentials, and CloudTrail trails."
+version = "0.2.0"
+description = "AWS integration for OGRL (RFC 0005): IAM users and credentials, CloudTrail trails, and query sources over AWS Smithy models (RFC 0007)."
 license = "Apache-2.0"
 requires-python = ">=3.12"
 dependencies = []
@@ -19,7 +19,7 @@ dev = [
 package = false
 
 [tool.uv.sources]
-ogrl-integration = { git = "https://github.com/adversitydotdev/ogrl-integration-sdk", tag = "v0.1.0a8" }
+ogrl-integration = { git = "https://github.com/adversitydotdev/ogrl-integration-sdk", tag = "v0.1.0a10" }
 
 [tool.ruff]
 line-length = 110

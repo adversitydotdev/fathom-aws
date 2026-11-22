@@ -2,8 +2,11 @@
 
 Credentials come from the `aws_role` connection: the OGRL host assumes the
 organization's read-only role and passes short-lived keys. Requests are signed
-with SigV4 here (see sigv4.py), so the package needs nothing beyond the SDK.
+with the SDK's SigV4, so the package needs nothing beyond the SDK.
 The role needs `SecurityAudit` plus `iam:GenerateCredentialReport`.
+
+Query sources (OGRL RFC 0007) run over the Smithy models in models/ without
+code here: the manifest's `smithy` block declares the services.
 """
 
 import base64
@@ -16,10 +19,9 @@ from datetime import UTC, datetime
 from urllib.parse import urlencode
 
 from ogrl_integration import Incomplete, Integration, InvalidConfig, VendorError
+from ogrl_integration.sigv4 import sign
 
-from sigv4 import sign
-
-app = Integration("dev.adversity.aws", "0.1.2")
+app = Integration("dev.adversity.aws", "0.2.0")
 
 IAM = "https://iam.amazonaws.com/"
 IAM_VERSION = "2010-05-08"

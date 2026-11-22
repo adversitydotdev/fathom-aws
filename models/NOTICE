@@ -1,0 +1,7 @@
+The Smithy models in this directory are from aws/api-models-aws
+(https://github.com/aws/api-models-aws), main branch as of 2026-11-21,
+unmodified. Copyright Amazon.com, Inc. or its affiliates. Licensed under the
+Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0).
+
+`ogrl-integration pack` trims them to their queryable operations and drops
+documentation when building the release archive.
